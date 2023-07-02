@@ -45,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("build");
     return initSwitch
         ? !complate
             ? Scaffold(
@@ -117,13 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () async {
-                print("ボタン押下");
                 initSwitch = true;
                 setState(() {});
                 await _initVideoPlayer();
                 complate = true;
                 setState(() {});
-                print("ボタン完了");
               },
               child: const Icon(Icons.play_circle_outline),
             ),
