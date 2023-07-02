@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late VideoPlayerController _controller;
   bool initSwitch = false;
   bool complate = false;
+  bool playSwitch = false;
 
   @override
   void initState() {
@@ -84,20 +85,25 @@ class _MyHomePageState extends State<MyHomePage> {
                           },
                           icon: const Icon(Icons.refresh),
                         ),
-                        IconButton(
-                          onPressed: () {
-                            // 動画を再生
-                            _controller.play();
-                          },
-                          icon: const Icon(Icons.play_arrow),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            // 動画を一時停止
-                            _controller.pause();
-                          },
-                          icon: const Icon(Icons.pause),
-                        ),
+                        playSwitch
+                            ? IconButton(
+                                onPressed: () {
+                                  // 動画を一時停止
+                                  _controller.pause();
+                                  playSwitch = !playSwitch;
+                                  setState(() {});
+                                },
+                                icon: const Icon(Icons.pause),
+                              )
+                            : IconButton(
+                                onPressed: () {
+                                  // 動画を再生
+                                  _controller.play();
+                                  playSwitch = !playSwitch;
+                                  setState(() {});
+                                },
+                                icon: const Icon(Icons.play_arrow),
+                              )
                       ],
                     ),
                   ],
