@@ -82,6 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             _controller
                                 .seekTo(Duration.zero)
                                 .then((_) => _controller.play());
+                            playSwitch = true;
+                            setState(() {});
                           },
                           icon: const Icon(Icons.refresh),
                         ),
